@@ -39,8 +39,10 @@ def async_detect_document_tibetan(args):
     gcs_destination = vision.types.GcsDestination(uri=gcs_destination_uri)
     output_config = vision.types.OutputConfig(
         gcs_destination=gcs_destination, batch_size=batch_size)
-
-    image_context = vision.types.ImageContext(language_hints=["bo"])
+    
+    #if you need to use a language other than English, change the language_hints=["en"] to another languageHints abbreviation
+    #see https://cloud.google.com/vision/docs/languages for languageHints codes
+    image_context = vision.types.ImageContext(language_hints=["en"])
 
     async_request = vision.types.AsyncAnnotateFileRequest(
         features=[feature], input_config=input_config,
