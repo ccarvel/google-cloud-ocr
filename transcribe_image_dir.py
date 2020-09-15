@@ -26,7 +26,7 @@ def detect_document_tibetan(args):
         print("Running document text detection on: {}".format(gcs_uri))
         client = vision.ImageAnnotatorClient()
         image = vision.types.Image()
-        image_context = vision.types.ImageContext(language_hints=["bo"])
+        image_context = vision.types.ImageContext(language_hints=["en"])
         image.source.image_uri = gcs_uri
 
         response = client.document_text_detection(image=image, image_context=image_context)
